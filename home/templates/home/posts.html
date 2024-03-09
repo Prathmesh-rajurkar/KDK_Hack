@@ -39,10 +39,12 @@
             justify-content: space-between;
             width: 35rem;
         }
-        img{
+
+        .roadbuddy {
             height: 71px;
             width: 81px;
         }
+
         .nav_icon {
             display: flex;
             flex-direction: row;
@@ -60,38 +62,43 @@
             font-size: 25px;
         }
 
-        .intro{
+        .intro {
             margin-top: 5rem;
             display: flex;
             justify-content: space-around;
             align-items: center;
         }
-        .rider{
+
+        .rider {
             display: flex;
             flex-direction: column;
         }
-        .driver{
+
+        .driver {
             display: flex;
             flex-direction: column;
         }
-        .rider>input{
+
+        .rider>input {
             margin: 0.75rem;
-            height:40px;
+            height: 40px;
             width: 300px;
             border-radius: 7px;
             border-color: black;
-            background-color:#E8E8E8;
+            background-color: #E8E8E8;
 
         }
-        .driver>input{
+
+        .driver>input {
             margin: 0.75rem;
-            height:40px;
+            height: 40px;
             width: 300px;
             border-radius: 7px;
             border-color: black;
-            background-color:#E8E8E8;
+            background-color: #E8E8E8;
         }
-        .rider>button{
+
+        .rider>button {
             height: 35px;
             margin: 0.75rem;
             width: 200px;
@@ -100,10 +107,11 @@
             font-size: 16px;
             font-weight: bold;
             font-family: "Anta", sans-serif;
-            
+
 
         }
-        .driver>button{
+
+        .driver>button {
             height: 35px;
             margin: 0.75rem;
             width: 200px;
@@ -112,7 +120,52 @@
             font-size: 16px;
             font-weight: bold;
             font-family: "Anta", sans-serif;
-            
+
+        }
+
+        .container2 {
+            margin-top: 100px;
+            font-family: "Anta", sans-serif;
+
+            background-color: #1F2544;
+            color: white;
+        }
+
+        .rider1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .rider_image {
+            /* padding-left: 90px;
+            padding-right: 90px; */
+            margin-top: 50px;
+            margin-bottom: 50px;
+            height: 500px;
+            width: 500px;
+            border-radius: 5%;
+        }
+
+        .text>h3 {
+            /* justify-items: end; */
+            margin-bottom: 30px;
+            font-size: 70px;
+        }
+
+        .text>p {
+            margin: 0;
+
+            font-size: 25px;
+        }
+        .driver1{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            font-family: "Anta", sans-serif;
+            color: #1F2544;
         }
     </style>
 </head>
@@ -122,7 +175,7 @@
         <div class="navbar">
             <div class="logo">
                 <div style="display: flex; flex-direction: row;">
-                    <img  src="{% static "RoadBuddy.jpg" %}" />
+                    <img class="roadbuddy" src="{% static "RoadBuddy.jpg" %}" />
                     <h4 class="title">RoadBuddy</h4>
                 </div>
                 <h4 class="navlink">Ride</h4>
@@ -138,7 +191,7 @@
                     <h4>Help</h4>
                 </div>
                 <div class="sign_out">
-                    <h4>Sign Out</h4>
+                    <h4><a style="text-decoration: none; color: #1F2544;" href="signout/">Sign Out</a></h4>
                 </div>
             </div>
         </div>
@@ -147,19 +200,38 @@
                 <h1>Be a <span style="color: red;">Rider</span></h1>
                 <input type="text" placeholder="  Enter Location">
                 <input type="text" placeholder="  Enter Destination">
-                <button>  Search For Drivers</button>
+                <button> Search For Drivers</button>
             </div>
             <div class="driver">
                 <h1>Be a <span style="color: red ;">Driver</span></h1>
                 <input type="text" placeholder="  Enter Location">
                 <input type="text" placeholder="  Enter Destination">
-                <button>  Search For Riders</button>
+                <button> Search For Riders</button>
 
             </div>
         </div>
     </div>
     <div class="container2">
+        <div class="rider1">
+            <div class="text">
+                <h3>Book a Ride</h3>
+                <p>RoadBuddy provides</p>
+                <p>you the service to hitchhike</p>
+            </div>
+            <img class="rider_image" src="{% static "image (1).png" %}" alt="">
 
+        </div>
+    </div>
+    <div class="container3">
+        <div class="driver1">
+            <img class="rider_image" src="{% static "earner-illustra.webp" %}" alt="">
+            <div class="text">
+                <h3>Drive when you<br>  want, make what<br>  you need</h3>
+                <p>Make money on your schedule with deliveries or rides—or both. <br> You can use your own car or choose a rental <br> through Uber.</p>
+                
+            </div>
+
+        </div>
     </div>
 </body>
 
