@@ -39,7 +39,10 @@
             justify-content: space-between;
             width: 35rem;
         }
-
+        img{
+            height: 71px;
+            width: 81px;
+        }
         .nav_icon {
             display: flex;
             flex-direction: row;
@@ -118,8 +121,8 @@
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <div>
-                    <!-- <img src="{% static 'RoadBuddy.jpg' %}" alt="@"> -->
+                <div style="display: flex; flex-direction: row;">
+                    <img  src="{% static "RoadBuddy.jpg" %}" />
                     <h4 class="title">RoadBuddy</h4>
                 </div>
                 <h4 class="navlink">Ride</h4>
