@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anta&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>Login In</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+
+    }
+
+    .container {
+      color: #393f81;
+      width: 100%;
+      height: 40rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: "Anta", sans-serif;
+    }
+
+    .container>div {
+      margin: 8px;
+    }
+
+    .box {
+      border: solid 2px black;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .box>div {
+      margin: 0.75rem;
+    }
+
+    .box>div>input {
+      width: 250px;
+      height: 25px;
+    }
+
+    .box>div>button {
+      width: 100px;
+      height: 22px;
+      font-family: "Anta", sans-serif;
+      align-self: center;
+    }
+  </style>
+
+</head>
+
+<body>
+  {% for message in messages %}
+
+  <div role="alert">
+    {{ message }}
+    <button type="button" class="close" data-dissmiss="alert" aria-label="close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  {% endfor %}
+
+  <!-- <h1>Welcome to RoadBuddy!</h1> -->
+
+  <form action="" method="POST" novalidate>
+    {% csrf_token %}
+    <div class="container">
+      <h1>RoadBuddy</h1>
+
+      <h2 style="letter-spacing: 1px;">Log into your account</h2>
+
+      <div class="box">
+        <div>
+          <label class="form-label" for="{{form.username.id_for_label}}">Username :</label><br>
+          <input type="email" id="{{form.username.id_for_label}}" name="{{ form.username.html_name }}"
+            value="{{ form.username.value|default_if_none:"" }}" class="form-control form-control-lg" />
+        </div>
+
+        <div>
+          <label class="form-label" for="{{ form.password.id_for_label }}">Password :</label><br>
+          <input type="password" id="{{ form.password.id_for_label }}" class="form-control form-control-lg"
+            name="{{ form.password.html_name }}" value="{{ form.password.value|default_if_none:"" }}">
+        </div>
+
+
+
+        <div style="align-self: center;">
+          <button type="submit">Login</button>
+        </div>
+      </div>
+      <div style="text-align: center;">
+        <a href="#!">Forgot password?</a>
+        <p>Don't have an account ? <a href="signup/" style="color: #393f81;">Sign Up here</a></p>
+      </div>
+    </div>
+  </form>
+
+  {% comment %} {% for message in messages %}
+  <div role="alert">
+    <strong>Message:</strong>{{ message }}
+    <button type="button" class="close" data-dissmiss="alert" aria-label="close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %} {% endcomment %}
+  <div>
+
+
+
+
+
+
+</body>
+
+</html>

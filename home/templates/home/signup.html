@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anta&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <title>Sign Up</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            color: #393f81;
+            width: 100%;
+            height: 40rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: "Anta", sans-serif;
+        }
+
+        .container>div {
+            margin: 8px;
+        }
+        .box{
+            border: solid 2px black;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+        .box>div{
+            margin: 0.75rem;
+        }
+        .box>div>input{
+            width: 250px;
+            height: 25px;
+        }
+        .box>div>button{
+            width: 100px;
+            height: 22px;
+            font-family: "Anta", sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    {% for message in messages %}
+
+    <div class="alert alert-{{ message.tags }} alert-dismissiable fade show" role="alert">
+        {{ message }}
+        <button type="button" data-dissmiss="alert" aria-label="close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+
+    {% endfor %}
+
+
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+
+        <div class="container">
+            <h1>RoadBuddy</h1>
+            <h2>Create new
+                account</h2>
+
+
+            <div class="box">
+                <div>
+                    <label class="form-label" for="{{form.username.id_for_label}}">Username :</label><br>
+                    <input type="text" id="{{form.username.id_for_label}}" name="{{ form.username.html_name }}"
+                        value="{{ form.username.value|default_if_none:"" }}" class="form-control form-control-lg" />
+                </div>
+
+                <div>
+                    <label class="form-label" for="{{ form.email.id_for_label }}">Email :</label><br>
+                    <input type="email" id="{{ form.email.id_for_label }}" class="form-control form-control-lg"
+                        name="{{ form.email.html_name }}" value="{{ form.email.value|default_if_none:"" }}">
+                </div>
+                <div>
+                    <label class="form-label" for="{{ form.password.id_for_label }}">Password :</label><br>
+                    <input type="password" id="{{ form.password.id_for_label }}" class="form-control form-control-lg"
+                        name="{{ form.password.html_name }}" value="{{ form.password.value|default_if_none:"" }}">
+                </div>
+
+
+                <div style="align-self: center;">
+                    <button class="btn btn-dark btn-lg btn-block" type="submit">Sign In</button>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="#!">Forgot password?</a>
+                <p>Already have an account ? <a href="login/" style="color: #393f81;">Log In here</a></p>
+            </div>
+
+            <footer>
+                <a href="#!">Terms of use.</a>
+                <a href="#!">Privacy policy</a>
+            </footer>
+        </div>
+</body>
+
+</html>
